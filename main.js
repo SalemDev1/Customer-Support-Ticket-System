@@ -60,3 +60,6 @@ function displayTickets(tickets) {
         // Add the ticket element to the ticket container from the orginal html structure
         ticketContainer.appendChild(ticketElement);
     })};
+
+    // Task 4-  Use finally to Ensure Cleanup
+    //Task 4 is handled in Task 2 as you can see where i typed out "Finally" this ensures the loading message is hidden once the fetch is complete, regardless of whether it succeeds or fails.
