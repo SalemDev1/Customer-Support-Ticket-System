@@ -20,7 +20,7 @@ async function fetchTickets() {
 
         // Throws the  custom error message if no tickets can be found
         if (tickets.length === 0) {
-            throw new Error('No tickets here. Guess we’re just like that');
+            throw new Error('No tickets here. Guess we are just like that');
         }
 
         // Pass the tickets to the displayTickets function which will properly handle the HTML structure of ticket
@@ -34,3 +34,29 @@ async function fetchTickets() {
 }
 // Calls to the function to fetch tickets
 fetchTickets();
+
+//Task 3- Display Tickets Dynamically on the Page
+// Functions to display the tickets on the webpage
+function displayTickets(tickets) {
+    ticketContainer.innerHTML = ''; 
+
+    tickets.forEach(ticket => {
+        // Create html elements for each ticket displaying items such as Ticket ID,Customer Name,Issue Description , and Details  
+        const ticketElement = document.createElement('div');
+        const ticketId = document.createElement('p');
+        const customerName = document.createElement('p');
+        const issueDescription = document.createElement('h3');
+        const issueDetails = document.createElement('p');
+        ticketId.textContent = `Ticket ID: ${ticket.id}`;
+        customerName.textContent = `Customer Name: User ${ticket.userId}`;
+        issueDescription.textContent = `Issue: ${ticket.title}`;
+        issueDetails.textContent = `Details: ${ticket.body}`;
+        ticketElement.appendChild(ticketId);
+        ticketElement.appendChild(customerName);
+        ticketElement.appendChild(issueDescription);
+        ticketElement.appendChild(issueDetails);
+       
+
+        // Add the ticket element to the ticket container from the orginal html structure
+        ticketContainer.appendChild(ticketElement);
+    })};
